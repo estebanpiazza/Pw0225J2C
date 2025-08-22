@@ -4,6 +4,9 @@ let profesor = true;
 edad = edad + 1
 edad += 1
 
+//var nombre = "Esteban" (scope global)
+
+
 const PI = 3.14
 //PI += 1
 //console.log(PI) //print
@@ -17,16 +20,18 @@ console.log(ARRAY1[0])
 // ``
 
 console.log(ARRAY1[1])
+// undefined
 
 //***************************************/
 
 //Objetos Literales ( Diccionario )
 let alumno1 = {
-                    nombre: "Agustin", 
+    nombre: "Agustin", 
     apellido: "Vaserman",
-                                            edad: 22,
+    edad: 22,
 deuda: false,
 }
+
 let alumno2= {
                         nombre: "Sofia", 
     apellido: "Quintero",

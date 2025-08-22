@@ -4,7 +4,7 @@
 console.log(saludar("Sofia"))
 
 function saludar(nombre){
-    return "Hola "+nombre 
+    return "Hola "+ nombre 
 }
 
 console.log(saludar("Esteban"))
@@ -21,6 +21,7 @@ console.log(sumar(1,2))
 // funcion flecha
 
 let multiplicar = (num1,num2) => num1*num2
+
 console.log(multiplicar(2,3))  
 
 // estructura if
@@ -39,6 +40,8 @@ console.log(`la suma de 1 + 1 es: ${1+1}`)
 // if ternario (operador ternario)
 
 let resta = a<b ? "es menor":"no es menor"
+
+
 console.log(resta) 
 
 // estructura for
