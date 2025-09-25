@@ -1,0 +1,60 @@
+/* CSS: Queries y pseudoselectores, flexbox, grid */
+body{
+    margin: 10px;
+}
+*{
+    border:1px solid red;
+}
+ #logo{
+        display:inline;
+        width: 500px;
+    }
+
+@media screen and (max-width:600px){
+    body{
+        background-color: blue;
+    }
+    #logo{
+        display:none;
+    }
+
+}
+
+
+@media screen and (min-width:600px){
+    body{
+        background-color: green;
+    }
+     #logo{
+        display:inline;
+        width: 50px;
+    }
+
+}
+
+
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-items: stretch;
+  grid-template-areas:
+    "header header"
+    "col-izq-1 col-der-1"
+    "col-izq-2 col-der-2"
+    "footer footer";
+}
+
+.header { grid-area: header; }
+
+.col-izq-1 { grid-area: col-izq-1; }
+
+.col-der-1 { grid-area: col-der-1; }
+
+.col-izq-2 { grid-area: col-izq-2; }
+
+.col-der-2 { grid-area: col-der-2; }
+
+.footer { grid-area: footer; }
+
