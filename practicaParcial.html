@@ -21,6 +21,10 @@
     <br><br>
     <input type="text" id="generoAMostrar" placeholder="Ingrese genero para filtrar"> 
     <input type="button" value="Filtrar genero" id="buscarGenero"> 
+
+    <div id="listaDePeliculas">
+    </div>
+
 </body>
 <script>
     let peliculas = []
@@ -28,6 +32,8 @@
 
     let botonJS = document.getElementById("botonAgregar")
     botonJS.addEventListener("click", agregarPelicula)
+    botonJS.addEventListener("click", mostrarPeliculas)
+
 
     let botonVistoJS = document.getElementById("marcarComoVista")
     botonVistoJS.addEventListener("click", marcarComoVisto)
@@ -46,13 +52,29 @@
         let anioJS = document.getElementById("anioHTML").value
         let generoJS = document.getElementById("generoHTML").value
         let vistoJS = document.getElementById("vistoHTML").checked
+        let divPeliculas = document.getElementById("listaDePeliculas")
         console.log(tituloJS, directorJS, anioJS, generoJS, vistoJS)
         let peliculaAgregar = { id:idJS, titulo: tituloJS, director: directorJS, anio: anioJS, genero: generoJS, visto:vistoJS}
         peliculas.push(peliculaAgregar)
         idJS +=1
         console.log(peliculas)
+
     }
 
+    function mostrarPeliculas(){
+        let divPeliculas = document.getElementById("listaDePeliculas")
+        divPeliculas.innerHTML = "" // Vaciar la lista existente
+        let listaHTML = document.createElement("ul")
+        for (let i = 0; i < peliculas.length; i++){
+            let item = document.createElement("li")
+            item.textContent = peliculas[i].titulo + " - " + peliculas[i].director + " (" + peliculas[i].anio + ")"
+            listaHTML.appendChild(item)
+        }
+        divPeliculas.appendChild(listaHTML)
+    }
+
+
+    
     function marcarComoVisto(){
         let idABuscar = document.getElementById("idVisto").value
         for (let i = 0; i < peliculas.length; i++){
