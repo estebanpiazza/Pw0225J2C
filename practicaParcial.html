@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="titulo" id="tituloHTML" placeholder="Ingrese titulo">
+    <input type="text" name="titulo" id="directorHTML" placeholder="Ingrese director">
+    <input type="text" name="titulo" id="anioHTML" placeholder="Ingrese año">
+    <input type="text" name="titulo" id="generoHTML" placeholder="Ingrese genero">
+    <input type="checkbox" name="" id="vistoHTML"> Visto?
+    <input type="button" value="Agregar pelicula" id="botonAgregar">
+    <br><br>
+    <input type="text" id="idVisto" placeholder="id de pelicula a marcar como vista"> 
+    <input type="button" value="Marcar como vista" id="marcarComoVista"> 
+        <br><br>
+    <input type="text" id="idABorrar" placeholder="id de pelicula a borrar"> 
+    <input type="button" value="Borrar pelicula" id="borrarPelicula"> 
+    <br><br>
+    <input type="text" id="generoAMostrar" placeholder="Ingrese genero para filtrar"> 
+    <input type="button" value="Filtrar genero" id="buscarGenero"> 
+</body>
+<script>
+    let peliculas = []
+    let idJS = 0
+
+    let botonJS = document.getElementById("botonAgregar")
+    botonJS.addEventListener("click", agregarPelicula)
+
+    let botonVistoJS = document.getElementById("marcarComoVista")
+    botonVistoJS.addEventListener("click", marcarComoVisto)
+    
+    let botonBorrarJS = document.getElementById("borrarPelicula")
+    botonBorrarJS.addEventListener("click", eliminarPelicula)
+
+    let botonGeneroJS = document.getElementById("buscarGenero")
+    botonGeneroJS.addEventListener("click", filtrarPeliculas)
+
+
+
+    function agregarPelicula() {
+        let tituloJS = document.getElementById("tituloHTML").value
+        let directorJS = document.getElementById("directorHTML").value
+        let anioJS = document.getElementById("anioHTML").value
+        let generoJS = document.getElementById("generoHTML").value
+        let vistoJS = document.getElementById("vistoHTML").checked
+        console.log(tituloJS, directorJS, anioJS, generoJS, vistoJS)
+        let peliculaAgregar = { id:idJS, titulo: tituloJS, director: directorJS, anio: anioJS, genero: generoJS, visto:vistoJS}
+        peliculas.push(peliculaAgregar)
+        idJS +=1
+        console.log(peliculas)
+    }
+
+    function marcarComoVisto(){
+        let idABuscar = document.getElementById("idVisto").value
+        for (let i = 0; i < peliculas.length; i++){
+            if (peliculas[i].id == idABuscar){
+                peliculas[i].visto = true;
+                console.log(peliculas[i])
+            }
+        }
+    }
+
+    function eliminarPelicula (){
+        let idABorrar = document.getElementById("idABorrar").value
+        for (let i = 0; i < peliculas.length; i++){
+            if (peliculas[i].id == idABorrar){
+                peliculas.splice(i,1)
+                console.log(peliculas)
+            }
+        }
+    }
+
+    function filtrarPeliculas(){
+        let generoBuscado = document.getElementById("generoAMostrar").value
+        let peliculasFiltradas = []
+        for ( let i = 0; i<peliculas.length;i++){
+            if (peliculas[i].genero == generoBuscado){
+                peliculasFiltradas.push(peliculas[i])
+            }
+        }
+        console.log(peliculasFiltradas)
+    }
+
+/* 
+/*Cada película tendrá: título, director, año de estreno, género y vista (true/false).*/ 
+// array de objetos literales
+
+/*La aplicación debe permitir:
+Agregar nuevas películas
+Mostrar todas las películas en una lista
+Marcar películas como vistas / no vistas
+Eliminar películas existentes
+Filtrar películas por género
+*/
+/*
+function agregarPelicula(titulo, director, año, genero, vista = false) {}
+function eliminarPelicula() {}
+function marcarComoVista() {}
+function obtenerPeliculas() {}
+function filtrarPorGenero(genero) {}
+
+*/ 
+
+</script>
+
+
+
+
+
+</html>
